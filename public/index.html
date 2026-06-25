@@ -5,388 +5,258 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FilePress — Comprimí y convertí tus archivos gratis</title>
   <meta name="description" content="Comprimí PDF, uní o dividí documentos, convertí Word y Excel a PDF, comprimí imágenes. Gratis, sin registro, 100% online." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8092843069356825" crossorigin="anonymous"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --green:       #1D9E75;
       --green-dark:  #0F6E56;
       --green-light: #E1F5EE;
       --green-mid:   #9FE1CB;
-      --red-bg:      #FAECE7; --red-t:    #8B3520;
-      --blue-bg:     #E6F1FB; --blue-t:   #1558A0;
-      --purple-bg:   #EEEDFE; --purple-t: #4A42A8;
-      --amber-bg:    #FFF3DC; --amber-t:  #7A4A08;
-      --text:        #141412;
-      --text-2:      #4a4a46;
-      --text-3:      #96968f;
-      --border:      rgba(0,0,0,0.07);
-      --border-2:    rgba(0,0,0,0.13);
+      --red-bg:      #FAECE7; --red-t:    #993C1D;
+      --blue-bg:     #E6F1FB; --blue-t:   #185FA5;
+      --purple-bg:   #EEEDFE; --purple-t: #534AB7;
+      --amber-bg:    #FAEEDA; --amber-t:  #854F0B;
+      --text:        #181816;
+      --text-2:      #52524e;
+      --text-3:      #9a9a94;
+      --border:      rgba(0,0,0,0.08);
+      --border-2:    rgba(0,0,0,0.15);
       --surface:     #ffffff;
-      --bg:          #f2f1ed;
-      --r:           10px;
+      --bg:          #f5f4f0;
+      --r:           12px;
       --r-lg:        16px;
-      --font:        'DM Sans', system-ui, sans-serif;
-      --font-mono:   'DM Mono', monospace;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     }
-
     @media (prefers-color-scheme: dark) {
       :root {
-        --green: #2bbf8e; --green-dark: #1D9E75; --green-light: #072e22; --green-mid: #0d5c43;
-        --text: #e8e8e2; --text-2: #a0a09a; --text-3: #606058;
-        --border: rgba(255,255,255,0.07); --border-2: rgba(255,255,255,0.14);
-        --surface: #1a1a18; --bg: #111110;
-        --red-bg: #271008; --red-t: #e08060;
-        --blue-bg: #0a1e36; --blue-t: #6ea8e0;
-        --purple-bg: #16153a; --purple-t: #a09ae0;
-        --amber-bg: #231600; --amber-t: #e8b060;
+        --green: #2bbf8e; --green-dark: #1D9E75; --green-light: #083326; --green-mid: #0d5c43;
+        --text: #ebebE5; --text-2: #aaaaaa; --text-3: #666660;
+        --border: rgba(255,255,255,0.08); --border-2: rgba(255,255,255,0.16);
+        --surface: #1c1c1a; --bg: #121210;
+        --red-bg: #2a1208; --red-t: #f0997b;
+        --blue-bg: #0c2340; --blue-t: #85b7eb;
+        --purple-bg: #1a1840; --purple-t: #afa9ec;
+        --amber-bg: #291a04; --amber-t: #fac775;
       }
     }
-
     html { scroll-behavior: smooth; height: 100%; }
     body {
       font-family: var(--font);
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
+      font-size: 16px;
     }
 
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: var(--surface);
-      border-bottom: 0.5px solid var(--border);
+      background: var(--surface); border-bottom: 0.5px solid var(--border);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem; height: 56px; flex-shrink: 0;
+      padding: 0 2rem; height: 60px; flex-shrink: 0;
     }
-    .logo {
-      display: flex; align-items: center; gap: 9px;
-      font-size: 17px; font-weight: 700; color: var(--text);
-      text-decoration: none; letter-spacing: -0.03em;
-    }
-    .logo-mark {
-      width: 30px; height: 30px; background: var(--green);
-      border-radius: 7px; display: flex; align-items: center; justify-content: center;
-    }
-    .logo-mark svg { width: 16px; height: 16px; fill: none; stroke: white; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
-    .logo span { font-family: var(--font-mono); font-size: 15px; letter-spacing: -0.02em; }
-    .nav-r { display: flex; align-items: center; gap: 5px; }
-    .lang-btn {
-      font-size: 11px; font-weight: 700; padding: 4px 11px;
-      border: 0.5px solid var(--border-2); border-radius: 99px;
-      background: transparent; color: var(--text-3); cursor: pointer;
-      font-family: var(--font); transition: all 0.12s; letter-spacing: 0.05em;
-    }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .logo-mark { width: 34px; height: 34px; background: var(--green); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-r { display: flex; gap: 6px; }
+    .lang-btn { font-size: 12px; font-weight: 600; padding: 5px 13px; border: 0.5px solid var(--border-2); border-radius: 99px; background: transparent; color: var(--text-3); cursor: pointer; font-family: var(--font); transition: all 0.15s; letter-spacing: 0.03em; }
     .lang-btn.active { background: var(--green); color: white; border-color: var(--green); }
     .lang-btn:not(.active):hover { border-color: var(--green); color: var(--green); }
 
-    /* ── MAIN LAYOUT ── */
+    /* ── SHELL ── */
     .shell {
       flex: 1;
       display: grid;
-      grid-template-columns: 220px 1fr 200px;
+      grid-template-columns: 240px 1fr 210px;
       grid-template-rows: auto 1fr;
       width: 100%;
-      max-width: 1600px;
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 0 1.25rem;
-      gap: 0 1.25rem;
-      min-height: 0;
+      padding: 0 1.5rem;
+      gap: 0 1.5rem;
     }
 
     /* ── HERO ── */
     .hero {
       grid-column: 1 / -1;
-      padding: 2rem 0 1.5rem;
+      padding: 2.25rem 0 1.75rem;
       display: flex; align-items: center; justify-content: space-between; gap: 2rem;
     }
-    .hero-left { flex: 1; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 5px;
-      background: var(--green-light); color: var(--green-dark);
-      font-size: 11px; font-weight: 700; padding: 3px 12px;
-      border-radius: 99px; margin-bottom: 0.85rem; letter-spacing: 0.04em;
-    }
-    .badge::before { content:''; width:6px; height:6px; background:var(--green); border-radius:50%; }
-    h1 {
-      font-size: clamp(24px, 2.8vw, 38px);
-      font-weight: 700; line-height: 1.1;
-      letter-spacing: -0.035em; margin-bottom: 0.6rem;
-    }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); color: var(--green-dark); font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 99px; margin-bottom: 1rem; letter-spacing: 0.03em; }
+    .badge::before { content: '●'; font-size: 7px; color: var(--green); }
+    h1 { font-size: clamp(28px, 3vw, 42px); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
     h1 em { font-style: normal; color: var(--green); }
-    .hero-sub { font-size: 14px; color: var(--text-2); line-height: 1.65; max-width: 400px; }
+    .hero-sub { font-size: 15px; color: var(--text-2); line-height: 1.65; max-width: 420px; }
     .hero-stats { display: flex; gap: 2.5rem; flex-shrink: 0; }
-    .stat-num {
-      font-family: var(--font-mono);
-      font-size: 26px; font-weight: 500; color: var(--green);
-      letter-spacing: -0.03em; line-height: 1;
-    }
-    .stat-num sup { font-size: 13px; }
-    .stat-lbl { font-size: 11px; color: var(--text-3); margin-top: 3px; font-weight: 500; }
+    .stat-num { font-size: 32px; font-weight: 800; color: var(--green); letter-spacing: -0.03em; line-height: 1; }
+    .stat-num sup { font-size: 16px; }
+    .stat-lbl { font-size: 12px; color: var(--text-3); margin-top: 4px; font-weight: 500; }
 
     /* ── LEFT SIDEBAR ── */
-    .sidebar {
-      grid-column: 1; padding-bottom: 1.5rem;
-      display: flex; flex-direction: column; gap: 0;
-    }
-    .grp-lbl {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--text-3);
-      padding: 0.9rem 0.6rem 0.3rem;
-    }
-    .t-item {
-      display: flex; align-items: center; gap: 9px;
-      padding: 0.55rem 0.6rem; border-radius: var(--r);
-      cursor: pointer; border: 1.5px solid transparent;
-      transition: background 0.1s;
-    }
+    .sidebar { grid-column: 1; padding-bottom: 2rem; }
+    .grp-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); padding: 0.85rem 0.75rem 0.35rem; }
+    .t-item { display: flex; align-items: center; gap: 10px; padding: 0.65rem 0.75rem; border-radius: var(--r); cursor: pointer; border: 1.5px solid transparent; transition: background 0.12s; }
     .t-item:hover { background: var(--surface); }
     .t-item.active { background: var(--surface); border-color: var(--green); }
-    .t-icon {
-      width: 26px; height: 26px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .t-icon svg { width: 13px; height: 13px; fill: none; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    .t-icon { width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .t-icon svg { width: 15px; height: 15px; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
     .t-icon.pdf    { background: var(--red-bg);    } .t-icon.pdf    svg { stroke: var(--red-t);    }
     .t-icon.doc    { background: var(--purple-bg); } .t-icon.doc    svg { stroke: var(--purple-t); }
     .t-icon.img    { background: var(--blue-bg);   } .t-icon.img    svg { stroke: var(--blue-t);   }
     .t-icon.merge  { background: var(--amber-bg);  } .t-icon.merge  svg { stroke: var(--amber-t);  }
-    .t-name { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.2; }
-    .t-sub  { font-size: 10px; color: var(--text-3); margin-top: 1px; }
+    .t-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; }
+    .t-sub  { font-size: 11px; color: var(--text-3); margin-top: 2px; }
     .t-item.active .t-name { color: var(--green-dark); }
 
-    /* ── MAIN PANEL ── */
-    .main { grid-column: 2; padding-bottom: 1.5rem; }
-    .card {
-      background: var(--surface);
-      border: 0.5px solid var(--border);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      height: 100%;
-      display: flex; flex-direction: column;
-    }
+    /* ── MAIN ── */
+    .main { grid-column: 2; padding-bottom: 2rem; }
+    .card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column; }
 
-    .p-head {
-      padding: 1rem 1.25rem 0.85rem;
-      border-bottom: 0.5px solid var(--border);
-      display: flex; align-items: center; gap: 10px; flex-shrink: 0;
-    }
-    .p-icon { width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-    .p-icon svg { width: 18px; height: 18px; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .p-head h2 { font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
-    .p-head p  { font-size: 12px; color: var(--text-2); margin-top: 1px; }
+    .p-head { padding: 1.2rem 1.5rem 1rem; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .p-icon { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .p-icon svg { width: 20px; height: 20px; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .p-head h2 { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+    .p-head p  { font-size: 13px; color: var(--text-2); margin-top: 2px; }
 
-    .p-opts { padding: 0.7rem 1.25rem; border-bottom: 0.5px solid var(--border); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; flex-shrink: 0; }
-    .chip {
-      font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 99px;
-      border: 0.5px solid var(--border-2); background: transparent; color: var(--text-2);
-      cursor: pointer; font-family: var(--font); transition: all 0.1s;
-    }
+    .p-opts { padding: 0.85rem 1.5rem; border-bottom: 0.5px solid var(--border); display: flex; flex-wrap: wrap; gap: 7px; align-items: center; flex-shrink: 0; }
+    .chip { font-size: 13px; font-weight: 500; padding: 6px 15px; border-radius: 99px; border: 0.5px solid var(--border-2); background: transparent; color: var(--text-2); cursor: pointer; font-family: var(--font); transition: all 0.12s; }
     .chip.sel { background: var(--green); color: white; border-color: var(--green); }
     .chip:not(.sel):hover { border-color: var(--green); color: var(--green); }
 
-    .sl-wrap { display: flex; align-items: center; gap: 8px; margin-left: auto; }
-    .sl-wrap label { font-size: 11px; color: var(--text-2); white-space: nowrap; }
-    .sl-wrap input[type=range] { width: 100px; accent-color: var(--green); cursor: pointer; }
-    .sl-wrap span { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--green); min-width: 32px; }
+    .sl-wrap { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+    .sl-wrap label { font-size: 13px; color: var(--text-2); white-space: nowrap; }
+    .sl-wrap input[type=range] { width: 120px; accent-color: var(--green); cursor: pointer; }
+    .sl-wrap span { font-size: 13px; font-weight: 700; color: var(--green); min-width: 38px; }
 
-    .fmt-row { padding: 0.7rem 1.25rem; border-bottom: 0.5px solid var(--border); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; flex-shrink: 0; }
-    .fmt-row label { font-size: 11px; color: var(--text-2); }
-    .fmt-btn {
-      font-size: 11px; font-weight: 700; padding: 4px 11px; border-radius: 7px;
-      border: 0.5px solid var(--border-2); background: transparent; color: var(--text-2);
-      cursor: pointer; font-family: var(--font); transition: all 0.1s; letter-spacing: 0.02em;
-    }
+    .fmt-row { padding: 0.85rem 1.5rem; border-bottom: 0.5px solid var(--border); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; flex-shrink: 0; }
+    .fmt-row label { font-size: 13px; color: var(--text-2); }
+    .fmt-btn { font-size: 12px; font-weight: 600; padding: 5px 13px; border-radius: 8px; border: 0.5px solid var(--border-2); background: transparent; color: var(--text-2); cursor: pointer; font-family: var(--font); transition: all 0.12s; }
     .fmt-btn.sel { background: var(--green); color: white; border-color: var(--green); }
     .fmt-btn:not(.sel):hover { border-color: var(--green); color: var(--green); }
 
-    .split-opts { padding: 0.7rem 1.25rem; border-bottom: 0.5px solid var(--border); flex-shrink: 0; }
-    .split-row { display: flex; gap: 6px; margin-bottom: 0.6rem; flex-wrap: wrap; }
-    .split-det { display: flex; gap: 8px; align-items: center; }
-    .split-det label { font-size: 11px; color: var(--text-2); }
-    .split-det input {
-      font-size: 12px; padding: 6px 10px; border-radius: 7px;
-      border: 0.5px solid var(--border-2); background: var(--bg);
-      color: var(--text); font-family: var(--font); width: 160px; outline: none;
-    }
+    .split-opts { padding: 0.85rem 1.5rem; border-bottom: 0.5px solid var(--border); flex-shrink: 0; }
+    .split-row { display: flex; gap: 7px; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .split-det { display: flex; gap: 10px; align-items: center; }
+    .split-det label { font-size: 13px; color: var(--text-2); }
+    .split-det input { font-size: 14px; padding: 7px 12px; border-radius: 9px; border: 0.5px solid var(--border-2); background: var(--bg); color: var(--text); font-family: var(--font); width: 180px; outline: none; }
     .split-det input:focus { border-color: var(--green); }
 
-    /* drop zone */
-    .drop-zone {
-      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 2rem 1.5rem; text-align: center; cursor: pointer;
-      transition: background 0.12s; position: relative;
-      border-bottom: 0.5px solid var(--border); min-height: 180px;
-    }
+    .drop-zone { flex: 1; min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem 1.5rem; text-align: center; cursor: pointer; transition: background 0.12s; position: relative; border-bottom: 0.5px solid var(--border); }
     .drop-zone:hover, .drop-zone.over { background: var(--green-light); }
     .drop-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-    .dz-ic {
-      width: 46px; height: 46px; border-radius: 12px; background: var(--green-light);
-      margin-bottom: 12px; display: flex; align-items: center; justify-content: center;
-    }
-    .dz-ic svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; }
-    .drop-zone h3 { font-size: 14px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 3px; }
-    .drop-zone p  { font-size: 12px; color: var(--text-2); }
-    .lim-pill { display: inline-block; margin-top: 8px; font-size: 10px; font-weight: 700; font-family: var(--font-mono); background: var(--bg); color: var(--text-3); padding: 3px 10px; border-radius: 99px; letter-spacing: 0.03em; }
+    .dz-ic { width: 52px; height: 52px; border-radius: 14px; background: var(--green-light); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; }
+    .dz-ic svg { width: 26px; height: 26px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .drop-zone h3 { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .drop-zone p  { font-size: 14px; color: var(--text-2); }
+    .lim-pill { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 600; background: var(--bg); color: var(--text-3); padding: 4px 12px; border-radius: 99px; }
 
-    /* file list merge */
-    .f-list { padding: 0.6rem 1.25rem; border-bottom: 0.5px solid var(--border); display: none; flex-direction: column; gap: 5px; flex-shrink: 0; }
+    .f-list { padding: 0.75rem 1.5rem; border-bottom: 0.5px solid var(--border); display: none; flex-direction: column; gap: 6px; flex-shrink: 0; }
     .f-list.on { display: flex; }
-    .f-item { display: flex; align-items: center; gap: 8px; background: var(--bg); border-radius: 7px; padding: 7px 10px; font-size: 12px; }
-    .f-item svg { width: 13px; height: 13px; stroke: var(--green); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .f-item { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 9px; padding: 9px 13px; font-size: 14px; }
+    .f-item svg { width: 15px; height: 15px; stroke: var(--green); fill: none; stroke-width: 2; flex-shrink: 0; }
     .f-nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .f-sz { font-size: 10px; font-family: var(--font-mono); color: var(--text-3); flex-shrink: 0; }
+    .f-sz { font-size: 12px; color: var(--text-3); flex-shrink: 0; }
     .f-rm { cursor: pointer; flex-shrink: 0; display: flex; }
     .f-rm svg { stroke: var(--text-3); transition: stroke 0.1s; }
     .f-rm:hover svg { stroke: var(--red-t); }
-    .add-btn { font-size: 12px; color: var(--green); background: none; border: none; cursor: pointer; font-family: var(--font); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; padding: 3px 0; }
+    .add-btn { font-size: 14px; color: var(--green); background: none; border: none; cursor: pointer; font-family: var(--font); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; padding: 4px 0; }
 
-    /* progress */
-    .prog { padding: 0.75rem 1.25rem; display: none; border-bottom: 0.5px solid var(--border); flex-shrink: 0; }
+    .prog { padding: 1rem 1.5rem; display: none; border-bottom: 0.5px solid var(--border); flex-shrink: 0; }
     .prog.on { display: block; }
-    .prog-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
-    .prog-top span { font-size: 12px; color: var(--text-2); }
-    .prog-top b { font-family: var(--font-mono); font-size: 12px; color: var(--green); }
-    .prog-track { background: var(--bg); border-radius: 99px; height: 5px; overflow: hidden; }
-    .prog-fill { height: 5px; background: var(--green); border-radius: 99px; width: 0%; transition: width 0.3s; }
+    .prog-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+    .prog-top span { font-size: 14px; color: var(--text-2); }
+    .prog-top b { font-size: 14px; font-weight: 700; color: var(--green); }
+    .prog-track { background: var(--bg); border-radius: 99px; height: 6px; overflow: hidden; }
+    .prog-fill { height: 6px; background: var(--green); border-radius: 99px; width: 0%; transition: width 0.3s; }
 
-    /* error */
-    .err { margin: 0 1.25rem 0.75rem; background: var(--red-bg); color: var(--red-t); border-radius: 8px; padding: 9px 12px; font-size: 12px; display: none; flex-shrink: 0; }
+    .err { margin: 0 1.5rem 0.85rem; background: var(--red-bg); color: var(--red-t); border-radius: 9px; padding: 10px 14px; font-size: 14px; display: none; flex-shrink: 0; }
     .err.on { display: block; }
 
-    /* result */
-    .result { padding: 1rem 1.25rem; display: none; flex-shrink: 0; }
+    .result { padding: 1.1rem 1.5rem; display: none; flex-shrink: 0; }
     .result.on { display: block; }
-    .res-card { background: var(--green-light); border-radius: var(--r); padding: 0.9rem 1.1rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .res-chk { width: 32px; height: 32px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .res-chk svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
-    .res-info { flex: 1; }
-    .res-info h4 { font-size: 13px; font-weight: 700; color: var(--green-dark); }
-    .res-info p  { font-size: 11px; color: var(--green-dark); opacity: 0.75; margin-top: 1px; font-family: var(--font-mono); }
-    .res-acts { display: flex; gap: 6px; }
-    .dl-btn { background: var(--green); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--font); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; letter-spacing: -0.01em; }
-    .dl-btn svg { width: 13px; height: 13px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
-    .nw-btn { background: transparent; color: var(--green-dark); border: 1.5px solid var(--green-mid); padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); }
+    .res-card { background: var(--green-light); border-radius: var(--r); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .res-chk { width: 36px; height: 36px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .res-chk svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .res-info h4 { font-size: 15px; font-weight: 700; color: var(--green-dark); }
+    .res-info p  { font-size: 13px; color: var(--green-dark); opacity: 0.8; margin-top: 2px; }
+    .res-acts { display: flex; gap: 8px; }
+    .dl-btn { background: var(--green); color: white; border: none; padding: 10px 22px; border-radius: 9px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: var(--font); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .dl-btn svg { width: 14px; height: 14px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .nw-btn { background: transparent; color: var(--green-dark); border: 1.5px solid var(--green-mid); padding: 10px 16px; border-radius: 9px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font); }
 
-    /* panel footer */
-    .p-foot { padding: 0.85rem 1.25rem; border-top: 0.5px solid var(--border); display: flex; justify-content: flex-end; flex-shrink: 0; }
-    .sub-btn {
-      background: var(--green); color: white; border: none;
-      padding: 10px 28px; border-radius: 9px; font-size: 14px; font-weight: 700;
-      cursor: pointer; font-family: var(--font); letter-spacing: -0.02em;
-      display: inline-flex; align-items: center; gap: 7px; transition: background 0.12s;
-    }
+    .p-foot { padding: 1rem 1.5rem; border-top: 0.5px solid var(--border); display: flex; justify-content: flex-end; flex-shrink: 0; }
+    .sub-btn { background: var(--green); color: white; border: none; padding: 12px 32px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: var(--font); letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 8px; transition: background 0.15s; }
     .sub-btn:hover:not(:disabled) { background: var(--green-dark); }
     .sub-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-    .sub-btn svg { width: 15px; height: 15px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .sub-btn svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
 
     /* ── RIGHT SIDEBAR ── */
-    .sidebar-r {
-      grid-column: 3; padding-bottom: 1.5rem;
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .ad-box { background: var(--surface); border: 0.5px dashed var(--border-2); border-radius: var(--r); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: var(--text-3); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-    .ad-box svg { width: 16px; height: 16px; stroke: var(--text-3); fill: none; stroke-width: 1.5; opacity: 0.5; }
-    .ad-tall { min-height: 300px; }
-    .info-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r); padding: 0.85rem 1rem; }
-    .info-card h4 { font-size: 11px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.65rem; }
-    .info-row { display: flex; align-items: flex-start; gap: 7px; margin-bottom: 0.5rem; }
+    .sidebar-r { grid-column: 3; padding-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .ad-box { background: var(--surface); border: 0.5px dashed var(--border-2); border-radius: var(--r); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--text-3); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; flex: 1; min-height: 250px; }
+    .ad-box svg { width: 18px; height: 18px; stroke: var(--text-3); fill: none; stroke-width: 1.5; opacity: 0.4; }
+    .info-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r); padding: 1rem 1.1rem; }
+    .info-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+    .info-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 0.55rem; }
     .info-row:last-child { margin-bottom: 0; }
-    .info-dot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
-    .info-row p { font-size: 11px; color: var(--text-2); line-height: 1.45; }
+    .info-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .info-row p { font-size: 13px; color: var(--text-2); line-height: 1.5; }
 
-    /* ── BOTTOM AD BANNER ── */
-    .bottom-ad {
-      width: 100%; background: var(--surface);
-      border-top: 0.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      padding: 0.6rem 1rem; min-height: 70px; flex-shrink: 0;
-    }
-    .bottom-ad-inner {
-      width: 100%; max-width: 970px;
-      background: var(--bg); border: 0.5px dashed var(--border-2);
-      border-radius: var(--r); height: 56px;
-      display: flex; align-items: center; justify-content: center;
-      gap: 6px; color: var(--text-3); font-size: 10px; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-    }
-    .bottom-ad-inner svg { width: 14px; height: 14px; stroke: var(--text-3); fill: none; stroke-width: 1.5; opacity: 0.5; }
+    /* ── BOTTOM BANNER ── */
+    .bottom-ad { background: var(--surface); border-top: 0.5px solid var(--border); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: center; min-height: 76px; flex-shrink: 0; }
+    .bottom-ad-inner { width: 100%; max-width: 970px; background: var(--bg); border: 0.5px dashed var(--border-2); border-radius: var(--r); height: 60px; display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--text-3); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+    .bottom-ad-inner svg { width: 16px; height: 16px; stroke: var(--text-3); fill: none; stroke-width: 1.5; opacity: 0.4; }
 
     /* ── PAGE FOOTER ── */
-    .p-footer {
-      border-top: 0.5px solid var(--border); padding: 1rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 11px; color: var(--text-3); flex-wrap: wrap; gap: 6px; flex-shrink: 0;
-    }
+    .p-footer { border-top: 0.5px solid var(--border); padding: 1.1rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-3); flex-wrap: wrap; gap: 8px; flex-shrink: 0; }
     .p-footer a { color: var(--text-3); text-decoration: none; }
     .p-footer a:hover { color: var(--text); }
-    .ft-links { display: flex; gap: 14px; }
+    .ft-links { display: flex; gap: 16px; }
 
-    /* ── MOBILE BOTTOM NAV ── */
-    .mob-nav {
-      display: none;
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-      background: var(--surface); border-top: 0.5px solid var(--border);
-      padding: 0.5rem 0.25rem calc(0.5rem + env(safe-area-inset-bottom));
-    }
+    /* ── MOBILE NAV ── */
+    .mob-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--surface); border-top: 0.5px solid var(--border); padding: 0.5rem 0.25rem calc(0.5rem + env(safe-area-inset-bottom)); }
     .mob-nav-inner { display: flex; overflow-x: auto; gap: 2px; scrollbar-width: none; }
     .mob-nav-inner::-webkit-scrollbar { display: none; }
-    .mob-tab {
-      display: flex; flex-direction: column; align-items: center; gap: 3px;
-      padding: 0.35rem 0.75rem; border-radius: 8px; cursor: pointer;
-      border: 1.5px solid transparent; min-width: 64px; flex-shrink: 0;
-      transition: background 0.1s;
-    }
+    .mob-tab { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 0.4rem 0.85rem; border-radius: 9px; cursor: pointer; border: 1.5px solid transparent; min-width: 68px; flex-shrink: 0; }
     .mob-tab.active { background: var(--green-light); border-color: var(--green); }
-    .mob-tab-icon { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; }
-    .mob-tab-icon svg { width: 12px; height: 12px; fill: none; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    .mob-tab-icon { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    .mob-tab-icon svg { width: 13px; height: 13px; fill: none; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
     .mob-tab-icon.pdf   { background: var(--red-bg);    } .mob-tab-icon.pdf   svg { stroke: var(--red-t);    }
     .mob-tab-icon.doc   { background: var(--purple-bg); } .mob-tab-icon.doc   svg { stroke: var(--purple-t); }
     .mob-tab-icon.img   { background: var(--blue-bg);   } .mob-tab-icon.img   svg { stroke: var(--blue-t);   }
     .mob-tab-icon.merge { background: var(--amber-bg);  } .mob-tab-icon.merge svg { stroke: var(--amber-t);  }
-    .mob-tab span { font-size: 9px; font-weight: 700; color: var(--text-3); text-align: center; line-height: 1.2; white-space: nowrap; }
+    .mob-tab span { font-size: 10px; font-weight: 700; color: var(--text-3); white-space: nowrap; }
     .mob-tab.active span { color: var(--green-dark); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
-      .shell { grid-template-columns: 200px 1fr; }
+      .shell { grid-template-columns: 220px 1fr; }
       .sidebar-r { display: none; }
       .hero-stats { display: none; }
     }
-
     @media (max-width: 680px) {
-      .shell { grid-template-columns: 1fr; padding: 0 0.75rem; gap: 0; }
+      .shell { grid-template-columns: 1fr; padding: 0 0.75rem; }
       .sidebar { display: none; }
-      .hero { flex-direction: column; align-items: flex-start; padding: 1.25rem 0 1rem; gap: 0.75rem; }
-      .hero-sub { max-width: 100%; }
-      nav { padding: 0 0.75rem; }
-      .p-footer { padding: 0.75rem 0.75rem 1rem; }
+      .hero { flex-direction: column; align-items: flex-start; padding: 1.5rem 0 1rem; gap: 0; }
+      nav { padding: 0 1rem; }
+      .p-footer { padding: 0.85rem 1rem 1rem; }
       .mob-nav { display: block; }
-      .main { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+      .main { padding-bottom: calc(85px + env(safe-area-inset-bottom)); }
       .bottom-ad { display: none; }
-      .p-foot { padding: 0.75rem 1rem; }
-      .drop-zone { min-height: 150px; padding: 1.5rem 1rem; }
-      .hero h1 { font-size: 26px; }
-      .sl-wrap { margin-left: 0; width: 100%; }
+      .drop-zone { min-height: 160px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="logo">
     <div class="logo-mark">
       <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
     </div>
-    <span>filepress</span>
+    filepress
   </a>
   <div class="nav-r">
     <button class="lang-btn" onclick="setLang('es')">ES</button>
@@ -397,9 +267,8 @@
 
 <div class="shell">
 
-  <!-- HERO -->
   <div class="hero">
-    <div class="hero-left">
+    <div>
       <div class="badge" id="badge">Gratis · Sin registro · Sin límites molestos</div>
       <h1 id="h1">Todo para tus <em>archivos</em>,<br>en un solo lugar</h1>
       <p class="hero-sub" id="hsub">Comprimí PDF, uní documentos, convertí Word a PDF y optimizá imágenes. Rápido, privado y online.</p>
@@ -411,128 +280,77 @@
     </div>
   </div>
 
-  <!-- LEFT SIDEBAR -->
   <aside class="sidebar">
     <div class="grp-lbl" id="g-pdf">PDF</div>
-    <div class="t-item active" data-tool="pdf-compress" onclick="sw(this)">
-      <div class="t-icon pdf"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.86-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-      <div><div class="t-name" id="tn1">Comprimir PDF</div><div class="t-sub" id="ts1">Reducí el peso</div></div>
-    </div>
-    <div class="t-item" data-tool="pdf-merge" onclick="sw(this)">
-      <div class="t-icon merge"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
-      <div><div class="t-name" id="tn2">Unir PDF</div><div class="t-sub" id="ts2">Varios en uno</div></div>
-    </div>
-    <div class="t-item" data-tool="pdf-split" onclick="sw(this)">
-      <div class="t-icon pdf"><svg viewBox="0 0 24 24"><line x1="21" y1="3" x2="3" y2="21"/><polyline points="21 3 15 3 21 9"/><polyline points="3 21 9 21 3 15"/></svg></div>
-      <div><div class="t-name" id="tn3">Dividir PDF</div><div class="t-sub" id="ts3">Extraé páginas</div></div>
-    </div>
+    <div class="t-item active" data-tool="pdf-compress" onclick="sw(this)"><div class="t-icon pdf"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.86-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="t-name" id="tn1">Comprimir PDF</div><div class="t-sub" id="ts1">Reducí el peso</div></div></div>
+    <div class="t-item" data-tool="pdf-merge" onclick="sw(this)"><div class="t-icon merge"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div><div><div class="t-name" id="tn2">Unir PDF</div><div class="t-sub" id="ts2">Varios en uno</div></div></div>
+    <div class="t-item" data-tool="pdf-split" onclick="sw(this)"><div class="t-icon pdf"><svg viewBox="0 0 24 24"><line x1="21" y1="3" x2="3" y2="21"/><polyline points="21 3 15 3 21 9"/><polyline points="3 21 9 21 3 15"/></svg></div><div><div class="t-name" id="tn3">Dividir PDF</div><div class="t-sub" id="ts3">Extraé páginas</div></div></div>
     <div class="grp-lbl" id="g-doc">DOCUMENTOS</div>
-    <div class="t-item" data-tool="to-pdf" onclick="sw(this)">
-      <div class="t-icon doc"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-      <div><div class="t-name" id="tn4">Word → PDF</div><div class="t-sub" id="ts4">Doc, Excel, PPT</div></div>
-    </div>
-    <div class="t-item" data-tool="pdf-word" onclick="sw(this)">
-      <div class="t-icon doc"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
-      <div><div class="t-name" id="tn5">PDF → Word</div><div class="t-sub" id="ts5">Editá el PDF</div></div>
-    </div>
+    <div class="t-item" data-tool="to-pdf" onclick="sw(this)"><div class="t-icon doc"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div class="t-name" id="tn4">Word → PDF</div><div class="t-sub" id="ts4">Doc, Excel, PPT</div></div></div>
+    <div class="t-item" data-tool="pdf-word" onclick="sw(this)"><div class="t-icon doc"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><div><div class="t-name" id="tn5">PDF → Word</div><div class="t-sub" id="ts5">Editá el PDF</div></div></div>
     <div class="grp-lbl" id="g-img">IMÁGENES</div>
-    <div class="t-item" data-tool="img-compress" onclick="sw(this)">
-      <div class="t-icon img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-      <div><div class="t-name" id="tn6">Comprimir imagen</div><div class="t-sub" id="ts6">JPG, PNG, WebP</div></div>
-    </div>
-    <div class="t-item" data-tool="img-convert" onclick="sw(this)">
-      <div class="t-icon img"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div>
-      <div><div class="t-name" id="tn7">Convertir imagen</div><div class="t-sub" id="ts7">Cambiá el formato</div></div>
-    </div>
+    <div class="t-item" data-tool="img-compress" onclick="sw(this)"><div class="t-icon img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div><div class="t-name" id="tn6">Comprimir imagen</div><div class="t-sub" id="ts6">JPG, PNG, WebP</div></div></div>
+    <div class="t-item" data-tool="img-convert" onclick="sw(this)"><div class="t-icon img"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div><div><div class="t-name" id="tn7">Convertir imagen</div><div class="t-sub" id="ts7">Cambiá el formato</div></div></div>
   </aside>
 
-  <!-- MAIN -->
   <main class="main">
     <div class="card">
       <div class="p-head">
-        <div class="p-icon" id="p-ic" style="background:var(--red-bg)">
-          <svg id="p-ic-svg" viewBox="0 0 24 24" style="stroke:var(--red-t)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.86-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
+        <div class="p-icon" id="p-ic" style="background:var(--red-bg)"><svg id="p-svg" viewBox="0 0 24 24" style="stroke:var(--red-t)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.86-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
         <div><h2 id="pt">Comprimir PDF</h2><p id="ps">Reducí el tamaño sin perder calidad visible</p></div>
       </div>
 
-      <div id="o-compress" class="p-opts">
-        <button class="chip sel" onclick="sc(this,'q')" data-val="72" id="c-bal">Equilibrado</button>
-        <button class="chip" onclick="sc(this,'q')" data-val="40" id="c-max">Máxima compresión</button>
-        <button class="chip" onclick="sc(this,'q')" data-val="90" id="c-hq">Alta calidad</button>
-        <div class="sl-wrap">
-          <label id="l-q">Calidad</label>
-          <input type="range" min="1" max="100" value="72" step="1" id="q-sl" oninput="document.getElementById('q-v').textContent=this.value+'%'">
-          <span id="q-v">72%</span>
-        </div>
+      <div id="o-c" class="p-opts">
+        <button class="chip sel" onclick="sc(this,'q')" data-val="72" id="c-b">Equilibrado</button>
+        <button class="chip" onclick="sc(this,'q')" data-val="40" id="c-m">Máxima compresión</button>
+        <button class="chip" onclick="sc(this,'q')" data-val="90" id="c-h">Alta calidad</button>
+        <div class="sl-wrap"><label id="l-q">Calidad</label><input type="range" min="1" max="100" value="72" step="1" id="q-sl" oninput="document.getElementById('q-v').textContent=this.value+'%'"><span id="q-v">72%</span></div>
       </div>
-
-      <div id="o-imgcomp" class="p-opts" style="display:none">
-        <button class="chip sel" onclick="sc(this,'iq')" data-val="80" id="c-auto">Automático</button>
-        <button class="chip" onclick="sc(this,'iq')" data-val="50" id="c-imax">Máxima compresión</button>
-        <button class="chip" onclick="sc(this,'iq')" data-val="95" id="c-ihq">Alta calidad</button>
-        <div class="sl-wrap">
-          <label id="l-iq">Calidad</label>
-          <input type="range" min="1" max="100" value="80" step="1" id="iq-sl" oninput="document.getElementById('iq-v').textContent=this.value+'%'">
-          <span id="iq-v">80%</span>
-        </div>
+      <div id="o-ic" class="p-opts" style="display:none">
+        <button class="chip sel" onclick="sc(this,'iq')" data-val="80" id="c-a">Automático</button>
+        <button class="chip" onclick="sc(this,'iq')" data-val="50" id="c-im">Máxima compresión</button>
+        <button class="chip" onclick="sc(this,'iq')" data-val="95" id="c-ih">Alta calidad</button>
+        <div class="sl-wrap"><label id="l-iq">Calidad</label><input type="range" min="1" max="100" value="80" step="1" id="iq-sl" oninput="document.getElementById('iq-v').textContent=this.value+'%'"><span id="iq-v">80%</span></div>
       </div>
-
-      <div id="o-imgconv" class="fmt-row" style="display:none">
-        <label id="l-fmt">Convertir a:</label>
+      <div id="o-cv" class="fmt-row" style="display:none">
+        <label id="l-f">Convertir a:</label>
         <button class="fmt-btn sel" onclick="sf(this)" data-fmt="jpg">JPG</button>
         <button class="fmt-btn" onclick="sf(this)" data-fmt="png">PNG</button>
         <button class="fmt-btn" onclick="sf(this)" data-fmt="webp">WebP</button>
         <button class="fmt-btn" onclick="sf(this)" data-fmt="avif">AVIF</button>
         <button class="fmt-btn" onclick="sf(this)" data-fmt="gif">GIF</button>
       </div>
-
-      <div id="o-split" class="split-opts" style="display:none">
+      <div id="o-sp" class="split-opts" style="display:none">
         <div class="split-row">
-          <button class="chip sel" onclick="ssp(this,'all')" id="sp-all">Todas las páginas</button>
-          <button class="chip" onclick="ssp(this,'range')" id="sp-rng">Por rango</button>
-          <button class="chip" onclick="ssp(this,'specific')" id="sp-spc">Páginas específicas</button>
+          <button class="chip sel" onclick="ssp(this,'all')" id="sp-a">Todas las páginas</button>
+          <button class="chip" onclick="ssp(this,'range')" id="sp-r">Por rango</button>
+          <button class="chip" onclick="ssp(this,'specific')" id="sp-s">Páginas específicas</button>
         </div>
-        <div class="split-det" id="sp-det" style="display:none">
-          <label id="l-sp">Páginas:</label>
-          <input type="text" id="sp-in" placeholder="1-5" />
-        </div>
+        <div class="split-det" id="sp-d" style="display:none"><label id="l-sp">Páginas:</label><input type="text" id="sp-i" placeholder="1-5" /></div>
       </div>
 
-      <div class="drop-zone" id="dz"
-        ondragover="dov(event)" ondragleave="dlv(event)" ondrop="ddr(event)">
+      <div class="drop-zone" id="dz" ondragover="dov(event)" ondragleave="dlv(event)" ondrop="ddr(event)">
         <input type="file" id="fi" onchange="onfs(this)" />
         <div class="dz-ic"><svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg></div>
         <h3 id="dz-t">Arrastrá tu archivo aquí</h3>
         <p id="dz-s">o hacé clic para seleccionar</p>
-        <span class="lim-pill" id="dz-l">PDF · MÁX 500 MB</span>
+        <span class="lim-pill" id="dz-l">PDF hasta 500 MB</span>
       </div>
 
       <div class="f-list" id="fl">
-        <div id="fi-items"></div>
-        <button class="add-btn" id="add-btn" onclick="document.getElementById('fi-ex').click()">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          <span id="add-lbl">Agregar más</span>
-        </button>
+        <div id="fi-it"></div>
+        <button class="add-btn" onclick="document.getElementById('fi-ex').click()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span id="add-l">Agregar más</span></button>
         <input type="file" id="fi-ex" accept=".pdf" multiple style="display:none" onchange="addMore(this)" />
       </div>
 
-      <div class="prog" id="pg">
-        <div class="prog-top"><span id="pg-msg">Subiendo...</span><b id="pg-pct">0%</b></div>
-        <div class="prog-track"><div class="prog-fill" id="pg-fill"></div></div>
-      </div>
-
+      <div class="prog" id="pg"><div class="prog-top"><span id="pg-m">Subiendo...</span><b id="pg-p">0%</b></div><div class="prog-track"><div class="prog-fill" id="pg-f"></div></div></div>
       <div class="err" id="err"></div>
-
       <div class="result" id="res">
         <div class="res-card">
           <div class="res-chk"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           <div class="res-info"><h4 id="r-t">¡Listo!</h4><p id="r-d"></p></div>
           <div class="res-acts">
-            <a class="dl-btn" id="dl" href="#" download>
-              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span id="dl-l">Descargar</span>
-            </a>
+            <a class="dl-btn" id="dl" href="#" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="dl-l">Descargar</span></a>
             <button class="nw-btn" onclick="reset()"><span id="nw-l">Nuevo</span></button>
           </div>
         </div>
@@ -547,13 +365,12 @@
     </div>
   </main>
 
-  <!-- RIGHT SIDEBAR -->
   <aside class="sidebar-r">
-    <div class="ad-box ad-tall">
-      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-      <span id="ad-r">ADSENSE 160×600</span>
+    <div class="ad-box">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="13" y2="14"/></svg>
+      <span id="ad-r">AdSense 160×600</span>
     </div>
-    <!-- ADSENSE REAL:
+    <!-- ADSENSE:
     <ins class="adsbygoogle" style="display:block;width:160px;height:600px" data-ad-client="ca-pub-8092843069356825" data-ad-slot="SLOT_ID"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
     -->
@@ -565,56 +382,33 @@
       <div class="info-row"><div class="info-dot"></div><p id="i4">Sin marcas de agua</p></div>
     </div>
   </aside>
-
 </div>
 
-<!-- BOTTOM AD BANNER (desktop) -->
+<!-- BANNER INFERIOR -->
 <div class="bottom-ad">
   <div class="bottom-ad-inner">
     <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="8" y1="10" x2="16" y2="10"/></svg>
-    <span id="ad-b">ADSENSE 970×90 — BANNER INFERIOR</span>
+    <span id="ad-b">AdSense 970×90 — Banner inferior</span>
   </div>
-  <!-- ADSENSE REAL:
+  <!-- ADSENSE:
   <ins class="adsbygoogle" style="display:block;width:970px;height:90px" data-ad-client="ca-pub-8092843069356825" data-ad-slot="SLOT_ID"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   -->
 </div>
 
-<!-- MOBILE BOTTOM NAV -->
+<!-- MOBILE NAV -->
 <nav class="mob-nav">
   <div class="mob-nav-inner">
-    <div class="mob-tab active" data-tool="pdf-compress" onclick="sw(this)">
-      <div class="mob-tab-icon pdf"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.86-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-      <span id="mt1">PDF</span>
-    </div>
-    <div class="mob-tab" data-tool="pdf-merge" onclick="sw(this)">
-      <div class="mob-tab-icon merge"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
-      <span id="mt2">Unir</span>
-    </div>
-    <div class="mob-tab" data-tool="pdf-split" onclick="sw(this)">
-      <div class="mob-tab-icon pdf"><svg viewBox="0 0 24 24"><line x1="21" y1="3" x2="3" y2="21"/><polyline points="21 3 15 3 21 9"/><polyline points="3 21 9 21 3 15"/></svg></div>
-      <span id="mt3">Dividir</span>
-    </div>
-    <div class="mob-tab" data-tool="to-pdf" onclick="sw(this)">
-      <div class="mob-tab-icon doc"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-      <span id="mt4">→PDF</span>
-    </div>
-    <div class="mob-tab" data-tool="pdf-word" onclick="sw(this)">
-      <div class="mob-tab-icon doc"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
-      <span id="mt5">→Word</span>
-    </div>
-    <div class="mob-tab" data-tool="img-compress" onclick="sw(this)">
-      <div class="mob-tab-icon img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-      <span id="mt6">Imagen</span>
-    </div>
-    <div class="mob-tab" data-tool="img-convert" onclick="sw(this)">
-      <div class="mob-tab-icon img"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div>
-      <span id="mt7">Convertir</span>
-    </div>
+    <div class="mob-tab active" data-tool="pdf-compress" onclick="sw(this)"><div class="mob-tab-icon pdf"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.86-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><span id="mt1">PDF</span></div>
+    <div class="mob-tab" data-tool="pdf-merge" onclick="sw(this)"><div class="mob-tab-icon merge"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div><span id="mt2">Unir</span></div>
+    <div class="mob-tab" data-tool="pdf-split" onclick="sw(this)"><div class="mob-tab-icon pdf"><svg viewBox="0 0 24 24"><line x1="21" y1="3" x2="3" y2="21"/><polyline points="21 3 15 3 21 9"/><polyline points="3 21 9 21 3 15"/></svg></div><span id="mt3">Dividir</span></div>
+    <div class="mob-tab" data-tool="to-pdf" onclick="sw(this)"><div class="mob-tab-icon doc"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span id="mt4">→PDF</span></div>
+    <div class="mob-tab" data-tool="pdf-word" onclick="sw(this)"><div class="mob-tab-icon doc"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><span id="mt5">→Word</span></div>
+    <div class="mob-tab" data-tool="img-compress" onclick="sw(this)"><div class="mob-tab-icon img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><span id="mt6">Imagen</span></div>
+    <div class="mob-tab" data-tool="img-convert" onclick="sw(this)"><div class="mob-tab-icon img"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div><span id="mt7">Convertir</span></div>
   </div>
 </nav>
 
-<!-- PAGE FOOTER -->
 <footer class="p-footer">
   <span>© 2025 filepress.app</span>
   <div class="ft-links">
@@ -626,110 +420,37 @@
 
 <script>
 const T={
-  es:{badge:'Gratis · Sin registro · Sin límites molestos',h1a:'Todo para tus ',h1b:'archivos',h1c:',<br>en un solo lugar',hsub:'Comprimí PDF, uní documentos, convertí Word a PDF y optimizá imágenes. Rápido, privado y online.',s1:'Máximo por archivo',s2:'Herramientas',s3:'Registro necesario',gPdf:'PDF',gDoc:'DOCUMENTOS',gImg:'IMÁGENES',tn:['Comprimir PDF','Unir PDF','Dividir PDF','Word → PDF','PDF → Word','Comprimir imagen','Convertir imagen'],ts:['Reducí el peso','Varios en uno','Extraé páginas','Doc, Excel, PPT','Editá el PDF','JPG, PNG, WebP','Cambiá el formato'],mt:['PDF','Unir','Dividir','→PDF','→Word','Imagen','Convertir'],panels:{'pdf-compress':{t:'Comprimir PDF',s:'Reducí el tamaño sin perder calidad visible',btn:'Comprimir PDF'},'pdf-merge':{t:'Unir PDFs',s:'Combiná múltiples archivos en uno solo',btn:'Unir PDFs'},'pdf-split':{t:'Dividir PDF',s:'Extraé páginas o rangos del documento',btn:'Dividir PDF'},'to-pdf':{t:'Convertir a PDF',s:'Word, Excel, PowerPoint → PDF',btn:'Convertir a PDF'},'pdf-word':{t:'PDF a Word',s:'Convertí tu PDF en un documento editable',btn:'Convertir a Word'},'img-compress':{t:'Comprimir imagen',s:'Reducí el peso de JPG, PNG y WebP',btn:'Comprimir imagen'},'img-convert':{t:'Convertir imagen',s:'Cambiá el formato de tu imagen',btn:'Convertir imagen'}},dz:'Arrastrá tu archivo aquí',dzs:'o hacé clic para seleccionar',dzm:'Arrastrá los PDFs aquí',dzms:'Podés seleccionar varios a la vez',lim:{pdf:'PDF · MÁX 500 MB',img:'IMAGEN · MÁX 100 MB',doc:'ARCHIVO · MÁX 200 MB'},lq:'Calidad',fmt:'Convertir a:',spa:'Todas las páginas',spr:'Por rango',spe:'Páginas específicas',spl:'Páginas:',spph:'1-5',add:'Agregar más',bal:'Equilibrado',mac:'Máxima compresión',hq:'Alta calidad',aut:'Automático',upl:'Subiendo...',proc:'Procesando...',done:'¡Listo!',dl:'Descargar',nw:'Nuevo',si:(s,c,p)=>`${fmt(s)} → ${fmt(c)} · −${p}%`,mi:(n,p)=>`${n} archivos · ${p} páginas`,ci:n=>`Convertido: ${n}`,spi:p=>`${p} página(s) extraída(s)`,iT:'¿Por qué FilePress?',i1:'Archivos eliminados en 10 minutos',i2:'Sin límite de conversiones',i3:'Funciona en cualquier dispositivo',i4:'Sin marcas de agua',fp1:'Privacidad',fp2:'Términos',fp3:'Contacto',adR:'ADSENSE 160×600',adB:'ADSENSE 970×90 — BANNER INFERIOR'},
-  en:{badge:'Free · No sign-up · No annoying limits',h1a:'Everything for your ',h1b:'files',h1c:',<br>in one place',hsub:'Compress PDFs, merge documents, convert Word to PDF and optimize images. Fast, private and online.',s1:'Max file size',s2:'Tools',s3:'Registration needed',gPdf:'PDF',gDoc:'DOCUMENTS',gImg:'IMAGES',tn:['Compress PDF','Merge PDF','Split PDF','Word → PDF','PDF → Word','Compress image','Convert image'],ts:['Reduce size','Combine files','Extract pages','Doc, Excel, PPT','Edit your PDF','JPG, PNG, WebP','Change format'],mt:['PDF','Merge','Split','→PDF','→Word','Image','Convert'],panels:{'pdf-compress':{t:'Compress PDF',s:'Reduce file size without visible quality loss',btn:'Compress PDF'},'pdf-merge':{t:'Merge PDFs',s:'Combine multiple files into one',btn:'Merge PDFs'},'pdf-split':{t:'Split PDF',s:'Extract pages or ranges from your document',btn:'Split PDF'},'to-pdf':{t:'Convert to PDF',s:'Word, Excel, PowerPoint → PDF',btn:'Convert to PDF'},'pdf-word':{t:'PDF to Word',s:'Turn your PDF into an editable document',btn:'Convert to Word'},'img-compress':{t:'Compress image',s:'Reduce the size of JPG, PNG and WebP',btn:'Compress image'},'img-convert':{t:'Convert image',s:'Change your image format',btn:'Convert image'}},dz:'Drag your file here',dzs:'or click to select',dzm:'Drag PDFs here',dzms:'Select multiple files at once',lim:{pdf:'PDF · MAX 500 MB',img:'IMAGE · MAX 100 MB',doc:'FILE · MAX 200 MB'},lq:'Quality',fmt:'Convert to:',spa:'All pages',spr:'By range',spe:'Specific pages',spl:'Pages:',spph:'1-5',add:'Add more',bal:'Balanced',mac:'Max compression',hq:'High quality',aut:'Auto',upl:'Uploading...',proc:'Processing...',done:'Done!',dl:'Download',nw:'New',si:(s,c,p)=>`${fmt(s)} → ${fmt(c)} · −${p}%`,mi:(n,p)=>`${n} files · ${p} pages`,ci:n=>`Converted: ${n}`,spi:p=>`${p} page(s) extracted`,iT:'Why FilePress?',i1:'Files deleted in 10 minutes',i2:'No conversion limits',i3:'Works on any device',i4:'No watermarks',fp1:'Privacy',fp2:'Terms',fp3:'Contact',adR:'ADSENSE 160×600',adB:'ADSENSE 970×90 — BOTTOM BANNER'},
-  pt:{badge:'Gratuito · Sem cadastro · Sem limites irritantes',h1a:'Tudo para seus ',h1b:'arquivos',h1c:',<br>em um só lugar',hsub:'Comprima PDFs, una documentos, converta Word para PDF e otimize imagens. Rápido, privado e online.',s1:'Tamanho máximo',s2:'Ferramentas',s3:'Cadastro necessário',gPdf:'PDF',gDoc:'DOCUMENTOS',gImg:'IMAGENS',tn:['Comprimir PDF','Unir PDF','Dividir PDF','Word → PDF','PDF → Word','Comprimir imagem','Converter imagem'],ts:['Reduza o tamanho','Vários em um','Extraia páginas','Doc, Excel, PPT','Edite o PDF','JPG, PNG, WebP','Mude o formato'],mt:['PDF','Unir','Dividir','→PDF','→Word','Imagem','Converter'],panels:{'pdf-compress':{t:'Comprimir PDF',s:'Reduza o tamanho sem perder qualidade',btn:'Comprimir PDF'},'pdf-merge':{t:'Unir PDFs',s:'Combine múltiplos arquivos em um só',btn:'Unir PDFs'},'pdf-split':{t:'Dividir PDF',s:'Extraia páginas ou intervalos do documento',btn:'Dividir PDF'},'to-pdf':{t:'Converter para PDF',s:'Word, Excel, PowerPoint → PDF',btn:'Converter para PDF'},'pdf-word':{t:'PDF para Word',s:'Transforme seu PDF em documento editável',btn:'Converter para Word'},'img-compress':{t:'Comprimir imagem',s:'Reduza o tamanho de JPG, PNG e WebP',btn:'Comprimir imagem'},'img-convert':{t:'Converter imagem',s:'Mude o formato da sua imagem',btn:'Converter imagem'}},dz:'Arraste seu arquivo aqui',dzs:'ou clique para selecionar',dzm:'Arraste os PDFs aqui',dzms:'Selecione vários de uma vez',lim:{pdf:'PDF · MÁX 500 MB',img:'IMAGEM · MÁX 100 MB',doc:'ARQUIVO · MÁX 200 MB'},lq:'Qualidade',fmt:'Converter para:',spa:'Todas as páginas',spr:'Por intervalo',spe:'Páginas específicas',spl:'Páginas:',spph:'1-5',add:'Adicionar mais',bal:'Equilibrado',mac:'Máxima compressão',hq:'Alta qualidade',aut:'Automático',upl:'Enviando...',proc:'Processando...',done:'Pronto!',dl:'Baixar',nw:'Novo',si:(s,c,p)=>`${fmt(s)} → ${fmt(c)} · −${p}%`,mi:(n,p)=>`${n} arquivos · ${p} páginas`,ci:n=>`Convertido: ${n}`,spi:p=>`${p} página(s) extraída(s)`,iT:'Por que FilePress?',i1:'Arquivos excluídos em 10 minutos',i2:'Sem limite de conversões',i3:'Funciona em qualquer dispositivo',i4:'Sem marcas d\'água',fp1:'Privacidade',fp2:'Termos',fp3:'Contato',adR:'ADSENSE 160×600',adB:'ADSENSE 970×90 — BANNER INFERIOR'}
+  es:{badge:'Gratis · Sin registro · Sin límites molestos',h1a:'Todo para tus ',h1b:'archivos',h1c:',<br>en un solo lugar',hsub:'Comprimí PDF, uní documentos, convertí Word a PDF y optimizá imágenes. Rápido, privado y online.',s1:'Máximo por archivo',s2:'Herramientas',s3:'Registro necesario',gP:'PDF',gD:'DOCUMENTOS',gI:'IMÁGENES',tn:['Comprimir PDF','Unir PDF','Dividir PDF','Word → PDF','PDF → Word','Comprimir imagen','Convertir imagen'],ts:['Reducí el peso','Varios en uno','Extraé páginas','Doc, Excel, PPT','Editá el PDF','JPG, PNG, WebP','Cambiá el formato'],mt:['PDF','Unir','Dividir','→PDF','→Word','Imagen','Convertir'],p:{'pdf-compress':{t:'Comprimir PDF',s:'Reducí el tamaño sin perder calidad visible',b:'Comprimir PDF'},'pdf-merge':{t:'Unir PDFs',s:'Combiná múltiples archivos en uno solo',b:'Unir PDFs'},'pdf-split':{t:'Dividir PDF',s:'Extraé páginas o rangos del documento',b:'Dividir PDF'},'to-pdf':{t:'Convertir a PDF',s:'Word, Excel, PowerPoint → PDF',b:'Convertir a PDF'},'pdf-word':{t:'PDF a Word',s:'Convertí tu PDF en un documento editable',b:'Convertir a Word'},'img-compress':{t:'Comprimir imagen',s:'Reducí el peso de JPG, PNG y WebP',b:'Comprimir imagen'},'img-convert':{t:'Convertir imagen',s:'Cambiá el formato de tu imagen',b:'Convertir imagen'}},dz:'Arrastrá tu archivo aquí',dzs:'o hacé clic para seleccionar',dzm:'Arrastrá los PDFs aquí',dzms:'Podés seleccionar varios a la vez',lim:{pdf:'PDF hasta 500 MB',img:'Imagen hasta 100 MB',doc:'Archivo hasta 200 MB'},lq:'Calidad',lf:'Convertir a:',spa:'Todas las páginas',spr:'Por rango',spe:'Páginas específicas',spl:'Páginas:',add:'Agregar más',bal:'Equilibrado',mac:'Máxima compresión',hq:'Alta calidad',aut:'Automático',upl:'Subiendo...',proc:'Procesando...',done:'¡Listo!',dl:'Descargar',nw:'Nuevo',si:(s,c,p)=>`${f(s)} → ${f(c)} · Ahorraste ${p}%`,mi:(n,p)=>`${n} archivos · ${p} páginas`,ci:n=>`Convertido: ${n}`,spi:p=>`${p} página(s) extraída(s)`,iT:'¿Por qué FilePress?',i1:'Archivos eliminados en 10 minutos',i2:'Sin límite de conversiones',i3:'Funciona en cualquier dispositivo',i4:'Sin marcas de agua',fp1:'Privacidad',fp2:'Términos',fp3:'Contacto',adR:'AdSense 160×600',adB:'AdSense 970×90 — Banner inferior'},
+  en:{badge:'Free · No sign-up · No annoying limits',h1a:'Everything for your ',h1b:'files',h1c:',<br>in one place',hsub:'Compress PDFs, merge documents, convert Word to PDF and optimize images. Fast, private and online.',s1:'Max file size',s2:'Tools',s3:'Registration needed',gP:'PDF',gD:'DOCUMENTS',gI:'IMAGES',tn:['Compress PDF','Merge PDF','Split PDF','Word → PDF','PDF → Word','Compress image','Convert image'],ts:['Reduce size','Combine files','Extract pages','Doc, Excel, PPT','Edit your PDF','JPG, PNG, WebP','Change format'],mt:['PDF','Merge','Split','→PDF','→Word','Image','Convert'],p:{'pdf-compress':{t:'Compress PDF',s:'Reduce file size without visible quality loss',b:'Compress PDF'},'pdf-merge':{t:'Merge PDFs',s:'Combine multiple files into one',b:'Merge PDFs'},'pdf-split':{t:'Split PDF',s:'Extract pages or ranges from your document',b:'Split PDF'},'to-pdf':{t:'Convert to PDF',s:'Word, Excel, PowerPoint → PDF',b:'Convert to PDF'},'pdf-word':{t:'PDF to Word',s:'Turn your PDF into an editable document',b:'Convert to Word'},'img-compress':{t:'Compress image',s:'Reduce the size of JPG, PNG and WebP',b:'Compress image'},'img-convert':{t:'Convert image',s:'Change your image format',b:'Convert image'}},dz:'Drag your file here',dzs:'or click to select',dzm:'Drag PDFs here',dzms:'Select multiple files at once',lim:{pdf:'PDF up to 500 MB',img:'Image up to 100 MB',doc:'File up to 200 MB'},lq:'Quality',lf:'Convert to:',spa:'All pages',spr:'By range',spe:'Specific pages',spl:'Pages:',add:'Add more',bal:'Balanced',mac:'Max compression',hq:'High quality',aut:'Auto',upl:'Uploading...',proc:'Processing...',done:'Done!',dl:'Download',nw:'New',si:(s,c,p)=>`${f(s)} → ${f(c)} · Saved ${p}%`,mi:(n,p)=>`${n} files · ${p} pages`,ci:n=>`Converted: ${n}`,spi:p=>`${p} page(s) extracted`,iT:'Why FilePress?',i1:'Files deleted in 10 minutes',i2:'No conversion limits',i3:'Works on any device',i4:'No watermarks',fp1:'Privacy',fp2:'Terms',fp3:'Contact',adR:'AdSense 160×600',adB:'AdSense 970×90 — Bottom banner'},
+  pt:{badge:'Gratuito · Sem cadastro · Sem limites irritantes',h1a:'Tudo para seus ',h1b:'arquivos',h1c:',<br>em um só lugar',hsub:'Comprima PDFs, una documentos, converta Word para PDF e otimize imagens. Rápido, privado e online.',s1:'Tamanho máximo',s2:'Ferramentas',s3:'Cadastro necessário',gP:'PDF',gD:'DOCUMENTOS',gI:'IMAGENS',tn:['Comprimir PDF','Unir PDF','Dividir PDF','Word → PDF','PDF → Word','Comprimir imagem','Converter imagem'],ts:['Reduza o tamanho','Vários em um','Extraia páginas','Doc, Excel, PPT','Edite o PDF','JPG, PNG, WebP','Mude o formato'],mt:['PDF','Unir','Dividir','→PDF','→Word','Imagem','Converter'],p:{'pdf-compress':{t:'Comprimir PDF',s:'Reduza o tamanho sem perder qualidade',b:'Comprimir PDF'},'pdf-merge':{t:'Unir PDFs',s:'Combine múltiplos arquivos em um só',b:'Unir PDFs'},'pdf-split':{t:'Dividir PDF',s:'Extraia páginas ou intervalos',b:'Dividir PDF'},'to-pdf':{t:'Converter para PDF',s:'Word, Excel, PowerPoint → PDF',b:'Converter para PDF'},'pdf-word':{t:'PDF para Word',s:'Transforme seu PDF em documento editável',b:'Converter para Word'},'img-compress':{t:'Comprimir imagem',s:'Reduza o tamanho de JPG, PNG e WebP',b:'Comprimir imagem'},'img-convert':{t:'Converter imagem',s:'Mude o formato da sua imagem',b:'Converter imagem'}},dz:'Arraste seu arquivo aqui',dzs:'ou clique para selecionar',dzm:'Arraste os PDFs aqui',dzms:'Selecione vários de uma vez',lim:{pdf:'PDF até 500 MB',img:'Imagem até 100 MB',doc:'Arquivo até 200 MB'},lq:'Qualidade',lf:'Converter para:',spa:'Todas as páginas',spr:'Por intervalo',spe:'Páginas específicas',spl:'Páginas:',add:'Adicionar mais',bal:'Equilibrado',mac:'Máxima compressão',hq:'Alta qualidade',aut:'Automático',upl:'Enviando...',proc:'Processando...',done:'Pronto!',dl:'Baixar',nw:'Novo',si:(s,c,p)=>`${f(s)} → ${f(c)} · Economizou ${p}%`,mi:(n,p)=>`${n} arquivos · ${p} páginas`,ci:n=>`Convertido: ${n}`,spi:p=>`${p} página(s) extraída(s)`,iT:'Por que FilePress?',i1:'Arquivos excluídos em 10 minutos',i2:'Sem limite de conversões',i3:'Funciona em qualquer dispositivo',i4:'Sem marcas d\'água',fp1:'Privacidade',fp2:'Termos',fp3:'Contato',adR:'AdSense 160×600',adB:'AdSense 970×90 — Banner inferior'}
 };
-
 const TC={'pdf-compress':{a:'.pdf',m:false,ib:'var(--red-bg)',is:'var(--red-t)',ip:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.86-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>'},'pdf-merge':{a:'.pdf',m:true,ib:'var(--amber-bg)',is:'var(--amber-t)',ip:'<path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><line x1="12" y1="3" x2="12" y2="21"/>'},'pdf-split':{a:'.pdf',m:false,ib:'var(--red-bg)',is:'var(--red-t)',ip:'<line x1="21" y1="3" x2="3" y2="21"/><polyline points="21 3 15 3 21 9"/><polyline points="3 21 9 21 3 15"/>'},'to-pdf':{a:'.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods',m:false,ib:'var(--purple-bg)',is:'var(--purple-t)',ip:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'},'pdf-word':{a:'.pdf',m:false,ib:'var(--purple-bg)',is:'var(--purple-t)',ip:'<polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>'},'img-compress':{a:'.jpg,.jpeg,.png,.webp,.avif',m:false,ib:'var(--blue-bg)',is:'var(--blue-t)',ip:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>'},'img-convert':{a:'.jpg,.jpeg,.png,.webp,.gif,.bmp,.avif',m:false,ib:'var(--blue-bg)',is:'var(--blue-t)',ip:'<polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/>'}};
-
 let lang='es',tool='pdf-compress',files=[],spMode='all',jid=null,pes=null;
-
-function fmt(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(1)+' MB';}
-function gid(){return Math.random().toString(36).slice(2)+Date.now().toString(36);}
-function $id(id){return document.getElementById(id);}
-
-function setLang(l){
-  lang=l;document.documentElement.lang=l;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));
-  const t=T[l];
-  $id('badge').textContent=t.badge;
-  $id('h1').innerHTML=t.h1a+'<em>'+t.h1b+'</em>'+t.h1c;
-  $id('hsub').textContent=t.hsub;
-  $id('s1').textContent=t.s1;$id('s2').textContent=t.s2;$id('s3').textContent=t.s3;
-  $id('g-pdf').textContent=t.gPdf;$id('g-doc').textContent=t.gDoc;$id('g-img').textContent=t.gImg;
-  for(let i=1;i<=7;i++){$id('tn'+i).textContent=t.tn[i-1];$id('ts'+i).textContent=t.ts[i-1];$id('mt'+i).textContent=t.mt[i-1];}
-  $id('l-q').textContent=t.lq;$id('l-iq').textContent=t.lq;$id('l-fmt').textContent=t.fmt;
-  $id('sp-all').textContent=t.spa;$id('sp-rng').textContent=t.spr;$id('sp-spc').textContent=t.spe;
-  $id('l-sp').textContent=t.spl;$id('sp-in').placeholder=t.spph;
-  $id('add-btn').querySelector('span').textContent=t.add;
-  $id('c-bal').textContent=t.bal;$id('c-max').textContent=t.mac;$id('c-hq').textContent=t.hq;
-  $id('c-auto').textContent=t.aut;$id('c-imax').textContent=t.mac;$id('c-ihq').textContent=t.hq;
-  $id('i-t').textContent=t.iT;$id('i1').textContent=t.i1;$id('i2').textContent=t.i2;$id('i3').textContent=t.i3;$id('i4').textContent=t.i4;
-  $id('fp1').textContent=t.fp1;$id('fp2').textContent=t.fp2;$id('fp3').textContent=t.fp3;
-  $id('ad-r').textContent=t.adR;$id('ad-b').textContent=t.adB;
-  $id('dl-l').textContent=t.dl;$id('nw-l').textContent=t.nw;
-  updHead();
-}
-
-function updHead(){
-  const t=T[lang],p=t.panels[tool];
-  $id('pt').textContent=p.t;$id('ps').textContent=p.s;$id('sub-l').textContent=p.btn;
-  const isMerge=tool==='pdf-merge';
-  $id('dz-t').textContent=isMerge?t.dzm:t.dz;
-  $id('dz-s').textContent=isMerge?t.dzms:t.dzs;
-  const lk=['img-compress','img-convert'].includes(tool)?'img':['to-pdf','pdf-word'].includes(tool)?'doc':'pdf';
-  $id('dz-l').textContent=t.lim[lk];
-}
-
-function sw(el){
-  tool=el.dataset.tool;
-  document.querySelectorAll('.t-item,.mob-tab').forEach(e=>e.classList.remove('active'));
-  document.querySelectorAll('[data-tool="'+tool+'"]').forEach(e=>e.classList.add('active'));
-  const c=TC[tool];
-  $id('fi').accept=c.a;$id('fi').multiple=c.m;
-  $id('p-ic').style.background=c.ib;
-  $id('p-ic-svg').style.stroke=c.is;
-  $id('p-ic-svg').innerHTML=c.ip;
-  $id('o-compress').style.display=tool==='pdf-compress'?'':'none';
-  $id('o-imgcomp').style.display=tool==='img-compress'?'':'none';
-  $id('o-imgconv').style.display=tool==='img-convert'?'':'none';
-  $id('o-split').style.display=tool==='pdf-split'?'':'none';
-  $id('fl').classList.toggle('on',tool==='pdf-merge');
-  reset(false);updHead();
-}
-
-function sc(b,g){b.closest('.p-opts').querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');if(g==='q'){const v=+b.dataset.val;$id('q-sl').value=v;$id('q-v').textContent=v+'%';}if(g==='iq'){const v=+b.dataset.val;$id('iq-sl').value=v;$id('iq-v').textContent=v+'%';}}
+function f(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(1)+' MB';}
+function $(i){return document.getElementById(i);}
+function setLang(l){lang=l;document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));const t=T[l];$('badge').textContent=t.badge;$('h1').innerHTML=t.h1a+'<em>'+t.h1b+'</em>'+t.h1c;$('hsub').textContent=t.hsub;$('s1').textContent=t.s1;$('s2').textContent=t.s2;$('s3').textContent=t.s3;$('g-pdf').textContent=t.gP;$('g-doc').textContent=t.gD;$('g-img').textContent=t.gI;for(let i=1;i<=7;i++){$('tn'+i).textContent=t.tn[i-1];$('ts'+i).textContent=t.ts[i-1];$('mt'+i).textContent=t.mt[i-1];}$('l-q').textContent=t.lq;$('l-iq').textContent=t.lq;$('l-f').textContent=t.lf;$('sp-a').textContent=t.spa;$('sp-r').textContent=t.spr;$('sp-s').textContent=t.spe;$('l-sp').textContent=t.spl;$('add-l').textContent=t.add;$('c-b').textContent=t.bal;$('c-m').textContent=t.mac;$('c-h').textContent=t.hq;$('c-a').textContent=t.aut;$('c-im').textContent=t.mac;$('c-ih').textContent=t.hq;$('i-t').textContent=t.iT;$('i1').textContent=t.i1;$('i2').textContent=t.i2;$('i3').textContent=t.i3;$('i4').textContent=t.i4;$('fp1').textContent=t.fp1;$('fp2').textContent=t.fp2;$('fp3').textContent=t.fp3;$('dl-l').textContent=t.dl;$('nw-l').textContent=t.nw;$('ad-r').textContent=t.adR;$('ad-b').textContent=t.adB;uh();}
+function uh(){const t=T[lang],p=t.p[tool];$('pt').textContent=p.t;$('ps').textContent=p.s;$('sub-l').textContent=p.b;const isMerge=tool==='pdf-merge';$('dz-t').textContent=isMerge?t.dzm:t.dz;$('dz-s').textContent=isMerge?t.dzms:t.dzs;const lk=['img-compress','img-convert'].includes(tool)?'img':['to-pdf','pdf-word'].includes(tool)?'doc':'pdf';$('dz-l').textContent=t.lim[lk];}
+function sw(el){tool=el.dataset.tool;document.querySelectorAll('.t-item,.mob-tab').forEach(e=>e.classList.remove('active'));document.querySelectorAll('[data-tool="'+tool+'"]').forEach(e=>e.classList.add('active'));const c=TC[tool];$('fi').accept=c.a;$('fi').multiple=c.m;$('p-ic').style.background=c.ib;$('p-svg').style.stroke=c.is;$('p-svg').innerHTML=c.ip;$('o-c').style.display=tool==='pdf-compress'?'':'none';$('o-ic').style.display=tool==='img-compress'?'':'none';$('o-cv').style.display=tool==='img-convert'?'':'none';$('o-sp').style.display=tool==='pdf-split'?'':'none';$('fl').classList.toggle('on',tool==='pdf-merge');reset(false);uh();}
+function sc(b,g){b.closest('.p-opts').querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');if(g==='q'){const v=+b.dataset.val;$('q-sl').value=v;$('q-v').textContent=v+'%';}if(g==='iq'){const v=+b.dataset.val;$('iq-sl').value=v;$('iq-v').textContent=v+'%';}}
 function sf(b){document.querySelectorAll('.fmt-btn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');}
-function ssp(b,m){spMode=m;document.querySelectorAll('.split-row .chip').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');$id('sp-det').style.display=m==='all'?'none':'flex';}
-function dov(e){e.preventDefault();e.currentTarget.classList.add('over');}
-function dlv(e){e.currentTarget.classList.remove('over');}
+function ssp(b,m){spMode=m;document.querySelectorAll('.split-row .chip').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');$('sp-d').style.display=m==='all'?'none':'flex';}
+function dov(e){e.preventDefault();e.currentTarget.classList.add('over');}function dlv(e){e.currentTarget.classList.remove('over');}
 function ddr(e){e.preventDefault();e.currentTarget.classList.remove('over');const fs=Array.from(e.dataTransfer.files);if(tool==='pdf-merge')addM(fs);else if(fs.length)setF(fs[0]);}
-function onfs(inp){const fs=Array.from(inp.files);if(tool==='pdf-merge')addM(fs);else if(fs.length)setF(fs[0]);inp.value='';}
-function setF(f){files=[f];$id('dz-t').textContent=f.name;$id('dz-s').textContent=fmt(f.size);$id('sub').disabled=false;hideRes();hideErr();}
-function addM(fs){fs.forEach(f=>{if(!files.find(x=>x.name===f.name))files.push(f);});renderFL();$id('sub').disabled=files.length<2;hideRes();hideErr();}
-function addMore(inp){addM(Array.from(inp.files));inp.value='';}
-function renderFL(){$id('fi-items').innerHTML=files.map((f,i)=>`<div class="f-item"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="f-nm">${f.name}</span><span class="f-sz">${fmt(f.size)}</span><span class="f-rm" onclick="rmF(${i})"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>`).join('');}
-function rmF(i){files.splice(i,1);renderFL();$id('sub').disabled=files.length<2;}
-function showPg(msg,pct){$id('pg').classList.add('on');$id('pg-msg').textContent=msg;$id('pg-pct').textContent=Math.round(pct)+'%';$id('pg-fill').style.width=Math.round(pct)+'%';}
-function hidePg(){$id('pg').classList.remove('on');}
-function showRes(title,detail,url,fn){$id('r-t').textContent=title;$id('r-d').textContent=detail;const d=$id('dl');d.href=url+'?name='+encodeURIComponent(fn);d.download=fn;$id('res').classList.add('on');$id('p-foot').style.display='none';}
-function hideRes(){$id('res').classList.remove('on');$id('p-foot').style.display='';}
-function showErr(m){const e=$id('err');e.textContent=m;e.classList.add('on');}
-function hideErr(){$id('err').classList.remove('on');}
-function reset(kf=true){if(!kf)files=[];if(pes){pes.close();pes=null;}hidePg();hideRes();hideErr();$id('p-foot').style.display='';$id('sub').disabled=true;if(tool!=='pdf-merge'){$id('dz-t').textContent=T[lang].dz;$id('dz-s').textContent=T[lang].dzs;}else{files=[];renderFL();}}
-
-async function go(){
-  hideErr();hideRes();$id('sub').disabled=true;
-  const t=T[lang];jid=gid();
-  pes=new EventSource('/api/progress/'+jid);
-  pes.onmessage=e=>{const d=JSON.parse(e.data);if(d.percent<0){pes.close();return;}showPg(d.message||t.proc,Math.max(50,d.percent));if(d.percent>=100){pes.close();pes=null;}};
-  const fd=new FormData();fd.append('jobId',jid);
-  let ep='';
-  if(tool==='pdf-compress'){fd.append('file',files[0]);fd.append('quality',$id('q-sl').value);ep='/api/pdf/compress';}
-  else if(tool==='pdf-merge'){files.forEach(f=>fd.append('files',f));ep='/api/pdf/merge';}
-  else if(tool==='pdf-split'){fd.append('file',files[0]);fd.append('mode',spMode);const v=$id('sp-in').value.trim();if(spMode==='range'){const p=v.split('-');fd.append('from',p[0]||'1');fd.append('to',p[1]||'999');}else if(spMode==='specific')fd.append('pages',v);ep='/api/pdf/split';}
-  else if(tool==='to-pdf'){fd.append('file',files[0]);ep='/api/convert/to-pdf';}
-  else if(tool==='pdf-word'){fd.append('file',files[0]);ep='/api/convert/pdf-to-word';}
-  else if(tool==='img-compress'){fd.append('file',files[0]);fd.append('quality',$id('iq-sl').value);ep='/api/image/compress';}
-  else if(tool==='img-convert'){fd.append('file',files[0]);fd.append('format',document.querySelector('.fmt-btn.sel')?.dataset.fmt||'jpg');ep='/api/image/convert';}
-  const xhr=new XMLHttpRequest();xhr.open('POST',ep);
-  xhr.upload.onprogress=e=>{if(e.lengthComputable)showPg(t.upl,(e.loaded/e.total)*50);};
-  xhr.onload=()=>{hidePg();if(xhr.status>=200&&xhr.status<300){try{const d=JSON.parse(xhr.responseText);let det='';if(d.savedPercent!==undefined)det=t.si(d.originalSize,d.compressedSize,d.savedPercent);else if(d.pages!==undefined&&tool==='pdf-merge')det=t.mi(files.length,d.pages);else if(d.pages!==undefined)det=t.spi(d.pages);else det=t.ci(d.filename||'');showRes(t.done,det,d.downloadUrl,d.filename||'resultado');}catch(e){showErr('Error al procesar la respuesta');}}else{try{showErr(JSON.parse(xhr.responseText).error||'Error');}catch(_){showErr('Error en el servidor');}$id('sub').disabled=false;}};
-  xhr.onerror=()=>{hidePg();showErr('Error de conexión.');$id('sub').disabled=false;};
-  xhr.send(fd);
-}
-
+function onfs(i){const fs=Array.from(i.files);if(tool==='pdf-merge')addM(fs);else if(fs.length)setF(fs[0]);i.value='';}
+function setF(fl){files=[fl];$('dz-t').textContent=fl.name;$('dz-s').textContent=f(fl.size);$('sub').disabled=false;hRes();hErr();}
+function addM(fs){fs.forEach(x=>{if(!files.find(y=>y.name===x.name))files.push(x);});rFL();$('sub').disabled=files.length<2;hRes();hErr();}
+function addMore(i){addM(Array.from(i.files));i.value='';}
+function rFL(){$('fi-it').innerHTML=files.map((x,i)=>`<div class="f-item"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="f-nm">${x.name}</span><span class="f-sz">${f(x.size)}</span><span class="f-rm" onclick="rmF(${i})"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div>`).join('');}
+function rmF(i){files.splice(i,1);rFL();$('sub').disabled=files.length<2;}
+function sPg(msg,pct){$('pg').classList.add('on');$('pg-m').textContent=msg;$('pg-p').textContent=Math.round(pct)+'%';$('pg-f').style.width=Math.round(pct)+'%';}
+function hPg(){$('pg').classList.remove('on');}
+function sRes(ti,det,url,fn){$('r-t').textContent=ti;$('r-d').textContent=det;const d=$('dl');d.href=url+'?name='+encodeURIComponent(fn);d.download=fn;$('res').classList.add('on');$('p-foot').style.display='none';}
+function hRes(){$('res').classList.remove('on');$('p-foot').style.display='';}
+function sErr(m){const e=$('err');e.textContent=m;e.classList.add('on');}
+function hErr(){$('err').classList.remove('on');}
+function reset(kf=true){if(!kf)files=[];if(pes){pes.close();pes=null;}hPg();hRes();hErr();$('p-foot').style.display='';$('sub').disabled=true;if(tool!=='pdf-merge'){$('dz-t').textContent=T[lang].dz;$('dz-s').textContent=T[lang].dzs;}else{files=[];rFL();}}
+async function go(){hErr();hRes();$('sub').disabled=true;const t=T[lang];jid=Math.random().toString(36).slice(2)+Date.now().toString(36);pes=new EventSource('/api/progress/'+jid);pes.onmessage=e=>{const d=JSON.parse(e.data);if(d.percent<0){pes.close();return;}sPg(d.message||t.proc,Math.max(50,d.percent));if(d.percent>=100){pes.close();pes=null;}};const fd=new FormData();fd.append('jobId',jid);let ep='';if(tool==='pdf-compress'){fd.append('file',files[0]);fd.append('quality',$('q-sl').value);ep='/api/pdf/compress';}else if(tool==='pdf-merge'){files.forEach(x=>fd.append('files',x));ep='/api/pdf/merge';}else if(tool==='pdf-split'){fd.append('file',files[0]);fd.append('mode',spMode);const v=$('sp-i').value.trim();if(spMode==='range'){const p=v.split('-');fd.append('from',p[0]||'1');fd.append('to',p[1]||'999');}else if(spMode==='specific')fd.append('pages',v);ep='/api/pdf/split';}else if(tool==='to-pdf'){fd.append('file',files[0]);ep='/api/convert/to-pdf';}else if(tool==='pdf-word'){fd.append('file',files[0]);ep='/api/convert/pdf-to-word';}else if(tool==='img-compress'){fd.append('file',files[0]);fd.append('quality',$('iq-sl').value);ep='/api/image/compress';}else if(tool==='img-convert'){fd.append('file',files[0]);fd.append('format',document.querySelector('.fmt-btn.sel')?.dataset.fmt||'jpg');ep='/api/image/convert';}
+const xhr=new XMLHttpRequest();xhr.open('POST',ep);xhr.upload.onprogress=e=>{if(e.lengthComputable)sPg(t.upl,(e.loaded/e.total)*50);};xhr.onload=()=>{hPg();if(xhr.status>=200&&xhr.status<300){try{const d=JSON.parse(xhr.responseText);let det='';if(d.savedPercent!==undefined)det=t.si(d.originalSize,d.compressedSize,d.savedPercent);else if(d.pages!==undefined&&tool==='pdf-merge')det=t.mi(files.length,d.pages);else if(d.pages!==undefined)det=t.spi(d.pages);else det=t.ci(d.filename||'');sRes(t.done,det,d.downloadUrl,d.filename||'resultado');}catch(e){sErr('Error al procesar la respuesta');}}else{try{sErr(JSON.parse(xhr.responseText).error||'Error');}catch(_){sErr('Error en el servidor');}$('sub').disabled=false;}};xhr.onerror=()=>{hPg();sErr('Error de conexión.');$('sub').disabled=false;};xhr.send(fd);}
 (async()=>{try{const r=await fetch('/api/detect-lang');const d=await r.json();setLang(T[d.lang]?d.lang:'es');}catch(_){setLang('es');}})();
 </script>
 </body>
