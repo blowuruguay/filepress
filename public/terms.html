@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Términos de Uso — FilePress</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1D9E75; --green-dark: #0F6E56; --green-light: #E1F5EE;
+      --text: #181816; --text-2: #52524e; --text-3: #9a9a94;
+      --border: rgba(0,0,0,0.08); --surface: #ffffff; --page-bg: #f5f4f0;
+      --r: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --green: #2bbf8e; --green-dark: #1D9E75; --green-light: #083326;
+        --text: #ebebE5; --text-2: #aaaaaa; --text-3: #666660;
+        --border: rgba(255,255,255,0.08); --surface: #1c1c1a; --page-bg: #121210;
+      }
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--page-bg); color: var(--text); min-height: 100vh; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 0.5px solid var(--border); padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .logo-mark { width: 34px; height: 34px; background: var(--green); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-right { display: flex; gap: 6px; }
+    .lang-btn { font-size: 12px; font-weight: 600; padding: 5px 12px; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 99px; background: transparent; color: var(--text-3); cursor: pointer; font-family: inherit; transition: all 0.15s; }
+    .lang-btn.active { background: var(--green); color: white; border-color: var(--green); }
+    .lang-btn:not(.active):hover { border-color: var(--green); color: var(--green); }
+    .container { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-header { margin-bottom: 2.5rem; }
+    .page-header h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+    .page-header p { font-size: 14px; color: var(--text-3); }
+    .doc { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r); padding: 2rem 2.5rem; }
+    .doc h2 { font-size: 16px; font-weight: 700; color: var(--text); margin: 1.75rem 0 0.6rem; padding-top: 1.75rem; border-top: 0.5px solid var(--border); }
+    .doc h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .doc p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 0.75rem; }
+    .doc ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .doc ul li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 0.3rem; }
+    .highlight { background: var(--green-light); border-radius: 8px; padding: 0.9rem 1.1rem; margin-bottom: 1rem; }
+    .highlight p { color: var(--green-dark); margin: 0; font-weight: 500; }
+    footer { border-top: 0.5px solid var(--border); padding: 1.25rem 2.5rem; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-3); flex-wrap: wrap; gap: 8px; }
+    footer a { color: var(--text-3); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 16px; }
+    .content { display: none; }
+    .content.active { display: block; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    filepress
+  </a>
+  <div class="nav-right">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1 id="page-title">Términos de Uso</h1>
+    <p id="page-updated">Última actualización: junio 2025</p>
+  </div>
+
+  <!-- ES -->
+  <div class="doc content active" id="content-es">
+    <div class="highlight"><p>✅ FilePress es un servicio gratuito. Al usarlo, aceptás estos términos de uso.</p></div>
+    <h2>1. Aceptación de los términos</h2>
+    <p>Al acceder y usar FilePress, aceptás quedar vinculado por estos Términos de Uso. Si no estás de acuerdo con alguno de estos términos, no uses el servicio.</p>
+    <h2>2. Descripción del servicio</h2>
+    <p>FilePress es una herramienta web gratuita que permite comprimir, convertir, unir y dividir archivos PDF e imágenes. El servicio se proporciona "tal cual", sin garantías de disponibilidad continua.</p>
+    <h2>3. Uso aceptable</h2>
+    <p>Al usar FilePress, te comprometés a:</p>
+    <ul>
+      <li>No subir contenido ilegal, malicioso o que viole derechos de terceros</li>
+      <li>No intentar sobrecargar, hackear o interrumpir el servicio</li>
+      <li>No usar el servicio de forma automatizada o masiva sin autorización</li>
+      <li>No subir archivos que contengan malware o código dañino</li>
+    </ul>
+    <h2>4. Propiedad de los archivos</h2>
+    <p>Vos sos el único propietario de los archivos que subís. FilePress no reclama ningún derecho sobre tu contenido. Los archivos se eliminan automáticamente del servidor dentro de los 10 minutos posteriores al procesamiento.</p>
+    <h2>5. Limitación de responsabilidad</h2>
+    <p>FilePress no se hace responsable por pérdida de datos, daños directos o indirectos derivados del uso del servicio. Siempre conservá una copia de tus archivos originales antes de procesarlos.</p>
+    <h2>6. Disponibilidad del servicio</h2>
+    <p>Nos esforzamos por mantener el servicio disponible en todo momento, pero no garantizamos disponibilidad ininterrumpida. Podemos realizar mantenimientos o actualizaciones sin previo aviso.</p>
+    <h2>7. Modificaciones</h2>
+    <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entran en vigencia al publicarse en esta página.</p>
+    <h2>8. Contacto</h2>
+    <p>Para consultas sobre estos términos, escribinos a <strong>hola@filepress.app</strong></p>
+  </div>
+
+  <!-- EN -->
+  <div class="doc content" id="content-en">
+    <div class="highlight"><p>✅ FilePress is a free service. By using it, you agree to these Terms of Use.</p></div>
+    <h2>1. Acceptance of terms</h2>
+    <p>By accessing and using FilePress, you agree to be bound by these Terms of Use. If you do not agree with any of these terms, please do not use the service.</p>
+    <h2>2. Service description</h2>
+    <p>FilePress is a free web tool for compressing, converting, merging, and splitting PDF files and images. The service is provided "as is", without guarantees of continuous availability.</p>
+    <h2>3. Acceptable use</h2>
+    <p>By using FilePress, you agree to:</p>
+    <ul>
+      <li>Not upload illegal, malicious content or content that violates third-party rights</li>
+      <li>Not attempt to overload, hack, or disrupt the service</li>
+      <li>Not use the service in an automated or bulk manner without authorization</li>
+      <li>Not upload files containing malware or harmful code</li>
+    </ul>
+    <h2>4. File ownership</h2>
+    <p>You are the sole owner of the files you upload. FilePress claims no rights over your content. Files are automatically deleted from the server within 10 minutes after processing.</p>
+    <h2>5. Limitation of liability</h2>
+    <p>FilePress is not responsible for data loss or direct/indirect damages resulting from use of the service. Always keep a copy of your original files before processing them.</p>
+    <h2>6. Service availability</h2>
+    <p>We strive to keep the service available at all times, but do not guarantee uninterrupted availability. We may perform maintenance or updates without prior notice.</p>
+    <h2>7. Modifications</h2>
+    <p>We reserve the right to modify these terms at any time. Changes take effect upon publication on this page.</p>
+    <h2>8. Contact</h2>
+    <p>For questions about these terms, contact us at <strong>hello@filepress.app</strong></p>
+  </div>
+
+  <!-- PT -->
+  <div class="doc content" id="content-pt">
+    <div class="highlight"><p>✅ O FilePress é um serviço gratuito. Ao usá-lo, você concorda com estes Termos de Uso.</p></div>
+    <h2>1. Aceitação dos termos</h2>
+    <p>Ao acessar e usar o FilePress, você concorda em ficar vinculado a estes Termos de Uso. Se não concordar com algum destes termos, não use o serviço.</p>
+    <h2>2. Descrição do serviço</h2>
+    <p>O FilePress é uma ferramenta web gratuita para comprimir, converter, unir e dividir arquivos PDF e imagens. O serviço é fornecido "como está", sem garantias de disponibilidade contínua.</p>
+    <h2>3. Uso aceitável</h2>
+    <p>Ao usar o FilePress, você se compromete a:</p>
+    <ul>
+      <li>Não enviar conteúdo ilegal, malicioso ou que viole direitos de terceiros</li>
+      <li>Não tentar sobrecarregar, hackear ou interromper o serviço</li>
+      <li>Não usar o serviço de forma automatizada ou em massa sem autorização</li>
+      <li>Não enviar arquivos contendo malware ou código prejudicial</li>
+    </ul>
+    <h2>4. Propriedade dos arquivos</h2>
+    <p>Você é o único proprietário dos arquivos que envia. O FilePress não reivindica nenhum direito sobre seu conteúdo. Os arquivos são excluídos automaticamente do servidor dentro de 10 minutos após o processamento.</p>
+    <h2>5. Limitação de responsabilidade</h2>
+    <p>O FilePress não se responsabiliza por perda de dados ou danos diretos/indiretos resultantes do uso do serviço. Sempre mantenha uma cópia dos seus arquivos originais antes de processá-los.</p>
+    <h2>6. Disponibilidade do serviço</h2>
+    <p>Nos esforçamos para manter o serviço disponível o tempo todo, mas não garantimos disponibilidade ininterrupta. Podemos realizar manutenções ou atualizações sem aviso prévio.</p>
+    <h2>7. Modificações</h2>
+    <p>Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entram em vigor após a publicação nesta página.</p>
+    <h2>8. Contato</h2>
+    <p>Para dúvidas sobre estes termos, entre em contato pelo e-mail <strong>ola@filepress.app</strong></p>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 filepress.app</span>
+  <div class="footer-links">
+    <a href="/privacy.html">Privacidad</a>
+    <a href="/terms.html">Términos</a>
+    <a href="/">Inicio</a>
+  </div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === l));
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+  document.getElementById('content-' + l).classList.add('active');
+  const titles = { es: 'Términos de Uso', en: 'Terms of Use', pt: 'Termos de Uso' };
+  const dates  = { es: 'Última actualización: junio 2025', en: 'Last updated: June 2025', pt: 'Última atualização: junho 2025' };
+  document.getElementById('page-title').textContent = titles[l];
+  document.getElementById('page-updated').textContent = dates[l];
+  document.title = titles[l] + ' — FilePress';
+}
+(async () => {
+  try { const r = await fetch('/api/detect-lang'); const d = await r.json(); setLang(d.lang || 'es'); }
+  catch (_) { setLang('es'); }
+})();
+</script>
+</body>
+</html>

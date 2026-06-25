@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — FilePress</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1D9E75; --green-dark: #0F6E56; --green-light: #E1F5EE;
+      --text: #181816; --text-2: #52524e; --text-3: #9a9a94;
+      --border: rgba(0,0,0,0.08); --surface: #ffffff; --page-bg: #f5f4f0;
+      --r: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --green: #2bbf8e; --green-dark: #1D9E75; --green-light: #083326;
+        --text: #ebebE5; --text-2: #aaaaaa; --text-3: #666660;
+        --border: rgba(255,255,255,0.08); --surface: #1c1c1a; --page-bg: #121210;
+      }
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--page-bg); color: var(--text); min-height: 100vh; }
+    nav {
+      position: sticky; top: 0; z-index: 100; background: var(--surface);
+      border-bottom: 0.5px solid var(--border); padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .logo-mark { width: 34px; height: 34px; background: var(--green); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-right { display: flex; gap: 6px; }
+    .lang-btn { font-size: 12px; font-weight: 600; padding: 5px 12px; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 99px; background: transparent; color: var(--text-3); cursor: pointer; font-family: inherit; transition: all 0.15s; }
+    .lang-btn.active { background: var(--green); color: white; border-color: var(--green); }
+    .lang-btn:not(.active):hover { border-color: var(--green); color: var(--green); }
+    .container { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-header { margin-bottom: 2.5rem; }
+    .page-header h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+    .page-header p { font-size: 14px; color: var(--text-3); }
+    .doc { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r); padding: 2rem 2.5rem; }
+    .doc h2 { font-size: 16px; font-weight: 700; color: var(--text); margin: 1.75rem 0 0.6rem; padding-top: 1.75rem; border-top: 0.5px solid var(--border); }
+    .doc h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .doc p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 0.75rem; }
+    .doc ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .doc ul li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 0.3rem; }
+    .highlight { background: var(--green-light); border-radius: 8px; padding: 0.9rem 1.1rem; margin-bottom: 1rem; }
+    .highlight p { color: var(--green-dark); margin: 0; font-weight: 500; }
+    footer { border-top: 0.5px solid var(--border); padding: 1.25rem 2.5rem; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-3); flex-wrap: wrap; gap: 8px; }
+    footer a { color: var(--text-3); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 16px; }
+    .content { display: none; }
+    .content.active { display: block; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    filepress
+  </a>
+  <div class="nav-right">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1 id="page-title">Política de Privacidad</h1>
+    <p id="page-updated">Última actualización: junio 2025</p>
+  </div>
+
+  <!-- ES -->
+  <div class="doc content active" id="content-es">
+    <div class="highlight"><p>🔒 Tus archivos nunca se almacenan de forma permanente. Se eliminan automáticamente del servidor en un máximo de 10 minutos tras ser procesados.</p></div>
+    <h2>1. Información que recopilamos</h2>
+    <p>FilePress no requiere registro ni cuenta de usuario. No recopilamos nombres, correos electrónicos ni ningún dato personal identificable.</p>
+    <p>Los únicos datos que procesamos temporalmente son:</p>
+    <ul>
+      <li>Los archivos que subís para comprimir o convertir (eliminados en máximo 10 minutos)</li>
+      <li>Datos de uso anónimos a través de Google Analytics (páginas visitadas, duración de sesión)</li>
+      <li>Tu dirección IP aproximada, únicamente para detectar el idioma de la interfaz</li>
+    </ul>
+    <h2>2. Cómo usamos tu información</h2>
+    <p>Los archivos que subís se usan exclusivamente para realizar la operación solicitada (comprimir, convertir, dividir, etc.). No los leemos, analizamos ni compartimos con terceros.</p>
+    <h2>3. Publicidad</h2>
+    <p>FilePress utiliza Google AdSense para mostrar anuncios. Google puede usar cookies para mostrar anuncios relevantes basados en tus visitas anteriores a este y otros sitios. Podés optar por no recibir publicidad personalizada visitando <a href="https://www.google.com/settings/ads" target="_blank" style="color:var(--green)">google.com/settings/ads</a>.</p>
+    <h2>4. Cookies</h2>
+    <p>Usamos cookies mínimas necesarias para el funcionamiento del sitio, y cookies de terceros de Google AdSense y Google Analytics. No usamos cookies de seguimiento propias.</p>
+    <h2>5. Seguridad</h2>
+    <p>Todos los archivos se transfieren mediante conexión cifrada (HTTPS). Los archivos temporales se almacenan en un directorio seguro del servidor y se eliminan automáticamente.</p>
+    <h2>6. Cambios a esta política</h2>
+    <p>Podemos actualizar esta política ocasionalmente. La fecha de última actualización siempre aparecerá al inicio de esta página.</p>
+    <h2>7. Contacto</h2>
+    <p>Si tenés preguntas sobre esta política, podés contactarnos en <strong>privacidad@filepress.app</strong></p>
+  </div>
+
+  <!-- EN -->
+  <div class="doc content" id="content-en">
+    <div class="highlight"><p>🔒 Your files are never permanently stored. They are automatically deleted from the server within 10 minutes of being processed.</p></div>
+    <h2>1. Information we collect</h2>
+    <p>FilePress does not require registration or a user account. We do not collect names, email addresses, or any personally identifiable information.</p>
+    <p>The only data we temporarily process is:</p>
+    <ul>
+      <li>Files you upload for compression or conversion (deleted within 10 minutes)</li>
+      <li>Anonymous usage data via Google Analytics (pages visited, session duration)</li>
+      <li>Your approximate IP address, solely to detect the interface language</li>
+    </ul>
+    <h2>2. How we use your information</h2>
+    <p>Files you upload are used exclusively to perform the requested operation (compress, convert, split, etc.). We do not read, analyze, or share them with third parties.</p>
+    <h2>3. Advertising</h2>
+    <p>FilePress uses Google AdSense to display ads. Google may use cookies to show relevant ads based on your previous visits to this and other websites. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" style="color:var(--green)">google.com/settings/ads</a>.</p>
+    <h2>4. Cookies</h2>
+    <p>We use minimal cookies necessary for the site to function, plus third-party cookies from Google AdSense and Google Analytics. We do not use our own tracking cookies.</p>
+    <h2>5. Security</h2>
+    <p>All files are transferred via encrypted connection (HTTPS). Temporary files are stored in a secure server directory and deleted automatically.</p>
+    <h2>6. Changes to this policy</h2>
+    <p>We may update this policy occasionally. The last updated date will always appear at the top of this page.</p>
+    <h2>7. Contact</h2>
+    <p>If you have questions about this policy, contact us at <strong>privacy@filepress.app</strong></p>
+  </div>
+
+  <!-- PT -->
+  <div class="doc content" id="content-pt">
+    <div class="highlight"><p>🔒 Seus arquivos nunca são armazenados permanentemente. Eles são excluídos automaticamente do servidor em no máximo 10 minutos após serem processados.</p></div>
+    <h2>1. Informações que coletamos</h2>
+    <p>O FilePress não requer cadastro ou conta de usuário. Não coletamos nomes, endereços de e-mail nem qualquer dado pessoal identificável.</p>
+    <p>Os únicos dados que processamos temporariamente são:</p>
+    <ul>
+      <li>Os arquivos que você envia para comprimir ou converter (excluídos em no máximo 10 minutos)</li>
+      <li>Dados de uso anônimos via Google Analytics (páginas visitadas, duração da sessão)</li>
+      <li>Seu endereço IP aproximado, apenas para detectar o idioma da interface</li>
+    </ul>
+    <h2>2. Como usamos suas informações</h2>
+    <p>Os arquivos enviados são usados exclusivamente para realizar a operação solicitada (comprimir, converter, dividir, etc.). Não os lemos, analisamos nem compartilhamos com terceiros.</p>
+    <h2>3. Publicidade</h2>
+    <p>O FilePress usa o Google AdSense para exibir anúncios. O Google pode usar cookies para exibir anúncios relevantes com base em suas visitas anteriores a este e outros sites. Você pode cancelar a publicidade personalizada visitando <a href="https://www.google.com/settings/ads" target="_blank" style="color:var(--green)">google.com/settings/ads</a>.</p>
+    <h2>4. Cookies</h2>
+    <p>Usamos cookies mínimos necessários para o funcionamento do site, além de cookies de terceiros do Google AdSense e Google Analytics. Não usamos cookies de rastreamento próprios.</p>
+    <h2>5. Segurança</h2>
+    <p>Todos os arquivos são transferidos via conexão criptografada (HTTPS). Os arquivos temporários são armazenados em um diretório seguro do servidor e excluídos automaticamente.</p>
+    <h2>6. Alterações nesta política</h2>
+    <p>Podemos atualizar esta política ocasionalmente. A data da última atualização sempre aparecerá no início desta página.</p>
+    <h2>7. Contato</h2>
+    <p>Se tiver dúvidas sobre esta política, entre em contato pelo e-mail <strong>privacidade@filepress.app</strong></p>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 filepress.app</span>
+  <div class="footer-links">
+    <a href="/privacy.html">Privacidad</a>
+    <a href="/terms.html">Términos</a>
+    <a href="/">Inicio</a>
+  </div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === l));
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+  document.getElementById('content-' + l).classList.add('active');
+  const titles = { es: 'Política de Privacidad', en: 'Privacy Policy', pt: 'Política de Privacidade' };
+  const dates  = { es: 'Última actualización: junio 2025', en: 'Last updated: June 2025', pt: 'Última atualização: junho 2025' };
+  document.getElementById('page-title').textContent = titles[l];
+  document.getElementById('page-updated').textContent = dates[l];
+  document.title = titles[l] + ' — FilePress';
+}
+(async () => {
+  try { const r = await fetch('/api/detect-lang'); const d = await r.json(); setLang(d.lang || 'es'); }
+  catch (_) { setLang('es'); }
+})();
+</script>
+</body>
+</html>
